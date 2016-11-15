@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from './model/cart';
 
 export default {
     items:  [{
@@ -19,6 +20,5 @@ export default {
             price:  4
 
     }],
-
-
+    cartModel: new Cart(),
 };

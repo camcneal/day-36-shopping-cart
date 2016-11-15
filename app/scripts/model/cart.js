@@ -1,8 +1,14 @@
-// import react from 'react';
-// import ReactDom from 'react-dom';
-//
-// export default Backbone.Model.extend({
-//   defaults: {
-//
-//   }
-// })
+import Backbone from 'backbone';
+
+export default Backbone.Model.extend({
+  // idAttribute: 'id',
+  defaults: {
+    // 'inCart': false,
+  },
+  addItem: function() {
+
+  },
+  removeItem: function() {
+
+  },
+});
