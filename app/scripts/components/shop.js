@@ -1,19 +1,21 @@
 import React from 'react';
 import store from '../store';
 import CartItem from './cartItem';
+import Cart from './cart';
 
 export default React.createClass({
   getInitialState() {
     return {
       // cartPreview: store.cartModel.get('inCart'),
+      items: store.cartModel.get('cartItems'),
     }
   },
 
   updateState () {
-    // this.setState({cartPreview: store.cartModel.get('inCart')});
+    this.setState({items: store.cartModel.get('cartItems')});
   },
   componentDidMount () {
-    // store.cartModel.on('change', updateState)
+    store.cartModel.on('change update', this.updateState)
   },
 
 
@@ -24,10 +26,13 @@ export default React.createClass({
     });
 
     return(
+        <div className="shop-container">
           <ul className="shop">
             <h3>Items</h3>
             {cartItems}
           </ul>
+          <Cart items={this.state.items}/>
+        </div>
     );
   }
 });

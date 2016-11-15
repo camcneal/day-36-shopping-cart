@@ -3,10 +3,8 @@ import store from '../store';
 
 
 export default React.createClass({
-  addItem (e) {
-    // console.log(this.props.name);
-    // console.log(this.props.price);
-    // if(e.target. === [0] )
+  addItem () {
+    store.cartModel.addItem(this.props.name, this.props.price);
   },
   render () {
     return(
