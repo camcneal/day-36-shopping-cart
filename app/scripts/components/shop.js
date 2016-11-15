@@ -6,13 +6,16 @@ import Cart from './cart';
 export default React.createClass({
   getInitialState() {
     return {
-      // cartPreview: store.cartModel.get('inCart'),
+      total: store.cartModel.get('total'),
       items: store.cartModel.get('cartItems'),
     }
   },
 
   updateState () {
-    this.setState({items: store.cartModel.get('cartItems')});
+    this.setState({
+      items: store.cartModel.get('cartItems'),
+      total: store.cartModel.get('total'),
+    });
   },
   componentDidMount () {
     store.cartModel.on('change update', this.updateState)
@@ -31,7 +34,7 @@ export default React.createClass({
             <h3>Items</h3>
             {cartItems}
           </ul>
-          <Cart items={this.state.items}/>
+          <Cart items={this.state.items} total={this.state.total}/>
         </div>
     );
   }

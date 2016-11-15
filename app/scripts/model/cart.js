@@ -13,7 +13,6 @@ export default Backbone.Model.extend({
     let oldPrice = this.get('total');
     let newPrice = oldPrice + price;
     this.set('total', newPrice);
-    // console.log('newTotal', this.get('total'));
   },
   addItem: function(name,price) {
       let newItem = {name: name, price:price};
@@ -24,10 +23,13 @@ export default Backbone.Model.extend({
       this.set('cartItems', newCart);
   },
   removeItem: function(name, price) {
-    let oldItem = {name: name, price:price};
-      let newCart = _.without(this.get('cartItems'), oldItem);
-      price = price * -1;
-      this.calcPrice(price);
-      this.set('cartItems', newCart);
+    this.get('cartItems').map((item, i) => {
+      if (name === item.name) {
+        this.get('cartItems').splice(i, 1);
+        // this.set('cartItems', newItems);
+      }
+    });
+    price = price * -1;
+    this.calcPrice(price);
   },
 });
