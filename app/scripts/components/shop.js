@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../store';
 import CartItem from './cartItem';
 import Cart from './cart';
+import ShopItems from './shopitem';
 
 export default React.createClass({
   getInitialState() {
@@ -25,7 +26,7 @@ export default React.createClass({
   render () {
     // console.log(store.items[0].name);
     let cartItems = store.items.map( (items,i,arr) => {
-      return (<CartItem name={items.name} key={i} price={items.price}/>);
+      return (<ShopItems name={items.name} key={i} price={items.price}/>);
     });
 
     return(

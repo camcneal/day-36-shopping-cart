@@ -19,10 +19,12 @@ export default Backbone.Model.extend({
       // console.log('newItem', newItem);
       let newCart = this.get('cartItems').concat(newItem);
       // console.log('newCart', newCart);
-      this.calcPrice(price);
       this.set('cartItems', newCart);
+      this.calcPrice(price);
+
   },
   removeItem: function(name, price) {
+    console.log('hi');
     this.get('cartItems').map((item, i) => {
       if (name === item.name) {
         this.get('cartItems').splice(i, 1);

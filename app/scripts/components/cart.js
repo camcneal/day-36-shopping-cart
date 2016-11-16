@@ -1,19 +1,22 @@
 import React from 'react';
 import store from '../store';
+import CartItems from './cartitem';
+import ShopItems from './shopitem';
 
 export default React.createClass({
-  removeItem (name, price) {
-    store.cartModel.removeItem(name, price);
-  },
+  // removeItem (name, price) {
+  //   store.cartModel.removeItem(name, price);
+  // },
 
   render () {
     let cartItems;
-    if (this.props.items.length) {
+    // console.log(this.props);
+    if (this.props.items) {
       cartItems = this.props.items.map( (items,i,arr) => {
         // console.log(items);
         let name = items.name;
         let price = items.price;
-        return (<li key={i} >{items.name} ${items.price} <button onClick={this.removeItem.bind(null, name, price)}>remove</button> </li>);
+        return <CartItems name={items.name} key={i} price={items.price}/>;
       });
     }
 
