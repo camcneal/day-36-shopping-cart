@@ -24,7 +24,6 @@ export default Backbone.Model.extend({
 
   },
   removeItem: function(name, price) {
-    console.log('hi');
     this.get('cartItems').map((item, i) => {
       if (name === item.name) {
         this.get('cartItems').splice(i, 1);

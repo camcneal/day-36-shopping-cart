@@ -4,13 +4,16 @@ import Cart from './cart';
 
 export default React.createClass({
   removeItem (name, price) {
-    store.cartModel.removeItem(name, price);
+    console.log('name', this.props.name);
+    console.log('price', this.props.price);
+    store.cartModel.removeItem(this.props.name, this.props.price);
   },
   render () {
-    console.log(this.props.name);
           let name = this.props.name;
           let price = this.props.price;
-          return (<li >{this.props.name} ${this.props.price}
-            <button onClick={this.removeItem}>remove</button> </li>);
+          return (
+            <li>{this.props.name} ${this.props.price}
+              <button onClick={this.removeItem}>remove</button>
+            </li>);
       },
     });
