@@ -4,6 +4,8 @@ import {shallow} from 'enzyme';
 import {spyOnComponentMethod} from 'sinon-spy-react';
 import Li from '../../../app/scripts/components/cartitem';
 
+
+
 describe('cart component' , () => {
 
         let li;
@@ -16,5 +18,9 @@ describe('cart component' , () => {
                 expect(li.is('li')).to.equal(true);
         });
 
+        it('should have a button' , () => {
+                expect(li.children('button')).to.exist;
+        })
 
+        
 })

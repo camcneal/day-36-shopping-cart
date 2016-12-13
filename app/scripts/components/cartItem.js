@@ -12,7 +12,11 @@ export default React.createClass({
           let name = this.props.name;
           let price = this.props.price;
           return (
-            <li>{this.props.name} ${this.props.price}
+            <li>
+              <p>{this.props.name}</p>
+
+              <p>${this.props.price}</p>
+
               <button onClick={this.removeItem}>remove</button>
             </li>);
       },
